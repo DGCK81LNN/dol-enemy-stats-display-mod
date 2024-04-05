@@ -1,0 +1,56 @@
+{
+  "name": "LNN 战斗对手状态显示·简中",
+  "version": "1.0.0",
+  "styleFileList": [
+  ],
+  "scriptFileList": [
+  ],
+  "tweeFileList": [
+  ],
+  "imgFileList": [
+  ],
+  "additionFile": [
+    "readme.txt"
+  ],
+  "addonPlugin": [
+    {
+      "modName": "ReplacePatcher",
+      "addonName": "ReplacePatcherAddon",
+      "modVersion": "1.0.0",
+      "params": {
+        "js": [
+        ],
+        "css": [
+        ],
+        "twee": [
+          {
+            "passageName": "Widgets State Man",
+            "from": "<<if $loveDrunk>>\n\t\t\t\t<span class=\"lustful\"><<He>>_looks<<print either(\"陶醉于爱情\", \"罪孽深重\", \"疯了\", \"欲火焚身\", \"极度狂喜\")>>。</span>\n\t\t\t<<elseif $enemyhealth gte $enemyhealthmax>>\n\t\t\t\t<span class=\"red\"><<He>>_looks很急切。</span>\n\t\t\t<<elseif $enemyhealth gte ($enemyhealthmax / 5) * 4>>\n\t\t\t\t<span class=\"pink\"><<He>>_looks有些难受。</span>\n\t\t\t<<elseif $enemyhealth gte ($enemyhealthmax / 5) * 3>>\n\t\t\t\t<span class=\"purple\"><<He>>_looks有些痛苦。</span>\n\t\t\t<<elseif $enemyhealth gte ($enemyhealthmax / 5) * 2>>\n\t\t\t\t<span class=\"blue\"><<He>>_looks十分痛苦。</span>\n\t\t\t<<elseif $enemyhealth gte ($enemyhealthmax / 5) * 1>>\n\t\t\t\t<span class=\"lblue\"><<He>>_looks受到了不少伤害。</span>\n\t\t\t<<elseif $enemyhealth gt 0>>\n\t\t\t\t<span class=\"teal\"><<He>>看起来无法承受更多的痛苦。</span>\n\t\t\t<<elseif $enemyhealth lte 0>>\n\t\t\t\t<span class=\"green\"><<He>>吃痛退开。</span>\n\t\t\t\t<<combatcontrol 15>><<def 10>>\n\t\t\t<</if>>",
+            "to": "<<if $loveDrunk>>\n\t\t\t\t<mouse class=\"lustful tooltip-centertop\"><<He>>_looks<<print either(\"陶醉于爱情\", \"罪孽深重\", \"疯了\", \"欲火焚身\", \"极度狂喜\")>>。<span>血量: <<print $enemyhealth.toFixed(2)>> / $enemyhealthmax</span></mouse>\n\t\t\t<<elseif $enemyhealth gte $enemyhealthmax>>\n\t\t\t\t<mouse class=\"red tooltip-centertop\"><<He>>_looks很急切。<span>血量: <<print $enemyhealth.toFixed(2)>> / $enemyhealthmax</span></mouse>\n\t\t\t<<elseif $enemyhealth gte ($enemyhealthmax / 5) * 4>>\n\t\t\t\t<mouse class=\"pink tooltip-centertop\"><<He>>_looks有些难受。<span>血量: <<print $enemyhealth.toFixed(2)>> / $enemyhealthmax</span></mouse>\n\t\t\t<<elseif $enemyhealth gte ($enemyhealthmax / 5) * 3>>\n\t\t\t\t<mouse class=\"purple tooltip-centertop\"><<He>>_looks有些痛苦。<span>血量: <<print $enemyhealth.toFixed(2)>> / $enemyhealthmax</span></mouse>\n\t\t\t<<elseif $enemyhealth gte ($enemyhealthmax / 5) * 2>>\n\t\t\t\t<mouse class=\"blue tooltip-centertop\"><<He>>_looks十分痛苦。<span>血量: <<print $enemyhealth.toFixed(2)>> / $enemyhealthmax</span></mouse>\n\t\t\t<<elseif $enemyhealth gte ($enemyhealthmax / 5) * 1>>\n\t\t\t\t<mouse class=\"lblue tooltip-centertop\"><<He>>_looks受到了不少伤害。<span>血量: <<print $enemyhealth.toFixed(2)>> / $enemyhealthmax</span></mouse>\n\t\t\t<<elseif $enemyhealth gt 0>>\n\t\t\t\t<mouse class=\"teal tooltip-centertop\"><<He>>看起来无法承受更多的痛苦。<span>血量: <<print $enemyhealth.toFixed(2)>> / $enemyhealthmax</span></mouse>\n\t\t\t<<elseif $enemyhealth lte 0>>\n\t\t\t\t<mouse class=\"green tooltip-centertop\"><<He>>吃痛退开。<span>血量: <<print $enemyhealth.toFixed(2)>> / $enemyhealthmax</span></mouse>\n\t\t\t\t<<combatcontrol 15>><<def 10>>\n\t\t\t<</if>>"
+          },
+          {
+            "passageName": "Widgets State Man",
+            "from": "<<if $enemyarousal gte $enemyarousalmax>>\n\t\t\t\t<<if $NPCList[0].penis isnot \"none\" and !npcHasStrapon(0)>>\n\t\t\t\t\t<span class=\"red\">射精迫在眉睫。</span>\n\t\t\t\t<<else>>\n\t\t\t\t\t<span class=\"red\">高潮迫在眉睫。</span>\n\t\t\t\t<</if>>\n\t\t\t<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 4>>\n\t\t\t\t<span class=\"pink\">你觉得<<he>>应该快要高潮了。</span>\n\t\t\t<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 3>>\n\t\t\t\t<span class=\"purple\"><<He>>_looks充满欲望。</span>\n\t\t\t<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 2>>\n\t\t\t\t<span class=\"blue\"><<He>>_looks非常性奋。</span>\n\t\t\t<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 1>>\n\t\t\t\t<span class=\"lblue\"><<He>>_looks被激起了性欲。</span>\n\t\t\t<<elseif $enemyarousal gt 0>>\n\t\t\t\t<span class=\"teal\"><<He>>_looks有些兴奋。</span>\n\t\t\t<<elseif $enemyarousal lte 0>>\n\t\t\t\t<<if $_enemies gt 1>>\n\t\t\t\t\t<span class=\"green\"><<He>>_looks无动于衷。</span>\n\t\t\t\t<<else>>\n\t\t\t\t\t<<if $npcSub>>\n\t\t\t\t\t\t<span class=\"green\"><<He>>静静地躺着，就这样等待着你。</span>\n\t\t\t\t\t<<else>>\n\t\t\t\t\t\t<span class=\"green\"><<He>>的下身<<if $NPCList[0].penis isnot \"none\">>软趴趴的<<else>>很干<</if>>。</span>\n\t\t\t\t\t<</if>>\n\t\t\t\t<</if>>\n\t\t\t<</if>>",
+            "to": "<<if $enemyarousal gte $enemyarousalmax>>\n\t\t\t\t<<if $NPCList[0].penis isnot \"none\" and !npcHasStrapon(0)>>\n\t\t\t\t\t<mouse class=\"red tooltip-centertop\">射精迫在眉睫。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t\t<<else>>\n\t\t\t\t\t<mouse class=\"red tooltip-centertop\">高潮迫在眉睫。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t\t<</if>>\n\t\t\t<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 4>>\n\t\t\t\t<mouse class=\"pink tooltip-centertop\">你觉得<<he>>应该快要高潮了。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 3>>\n\t\t\t\t<mouse class=\"purple tooltip-centertop\"><<He>>_looks充满欲望。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 2>>\n\t\t\t\t<mouse class=\"blue tooltip-centertop\"><<He>>_looks非常性奋。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 1>>\n\t\t\t\t<mouse class=\"lblue tooltip-centertop\"><<He>>_looks被激起了性欲。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t<<elseif $enemyarousal gt 0>>\n\t\t\t\t<mouse class=\"teal tooltip-centertop\"><<He>>_looks有些兴奋。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t<<elseif $enemyarousal lte 0>>\n\t\t\t\t<<if $_enemies gt 1>>\n\t\t\t\t\t<mouse class=\"green tooltip-centertop\"><<He>>_looks无动于衷。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t\t<<else>>\n\t\t\t\t\t<<if $npcSub>>\n\t\t\t\t\t\t<mouse class=\"green tooltip-centertop\"><<He>>静静地躺着，就这样等待着你。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t\t\t<<else>>\n\t\t\t\t\t\t<mouse class=\"green tooltip-centertop\"><<He>>的下身<<if $NPCList[0].penis isnot \"none\">>软趴趴的<<else>>很干<</if>>。<span>性奋: <<print $enemyarousal.toFixed(2)>> / $enemyarousalmax</span></mouse>\n\t\t\t\t\t<</if>>\n\t\t\t\t<</if>>\n\t\t\t<</if>>"
+          },
+          {
+            "passageName": "Widgets State Man",
+            "from": "<<if $enemyanger gte $enemyangermax>>\n\t\t\t\t<span class=\"red\"><<He>>异常愤怒。</span>\n\t\t\t<<elseif $enemyanger gte ($enemyangermax / 5) * 4>>\n\t\t\t\t<span class=\"pink\"><<He>>_looks非常生气。</span>\n\t\t\t<<elseif $enemyanger gte ($enemyangermax / 5) * 3>>\n\t\t\t\t<span class=\"purple\"><<He>>_looks已经生气了。</span>\n\t\t\t<<elseif $enemyanger gte ($enemyangermax / 5) * 2>>\n\t\t\t\t<span class=\"blue\"><<He>>_looks有些恼怒。</span>\n\t\t\t<<elseif $enemyanger gte ($enemyangermax / 5) * 1>>\n\t\t\t\t<span class=\"lblue\"><<He>>_looks有些躁动。</span>\n\t\t\t<<elseif $enemyanger gt 0>>\n\t\t\t\t<span class=\"teal\"><<He>>_looks有些失望。</span>\n\t\t\t<<elseif $enemyanger lte 0>>\n\t\t\t\t<span class=\"green\"><<He>>_looks很平静。</span>\n\t\t\t<</if>>",
+            "to": "<<if $enemyanger gte $enemyangermax>>\n\t\t\t\t<mouse class=\"red tooltip-centertop\"><<He>>异常愤怒。<span>愤怒: <<print $enemyanger.toFixed(2)>> / $enemyangermax</span></mouse>\n\t\t\t<<elseif $enemyanger gte ($enemyangermax / 5) * 4>>\n\t\t\t\t<mouse class=\"pink tooltip-centertop\"><<He>>_looks非常生气。<span>愤怒: <<print $enemyanger.toFixed(2)>> / $enemyangermax</span></mouse>\n\t\t\t<<elseif $enemyanger gte ($enemyangermax / 5) * 3>>\n\t\t\t\t<mouse class=\"purple tooltip-centertop\"><<He>>_looks已经生气了。<span>愤怒: <<print $enemyanger.toFixed(2)>> / $enemyangermax</span></mouse>\n\t\t\t<<elseif $enemyanger gte ($enemyangermax / 5) * 2>>\n\t\t\t\t<mouse class=\"blue tooltip-centertop\"><<He>>_looks有些恼怒。<span>愤怒: <<print $enemyanger.toFixed(2)>> / $enemyangermax</span></mouse>\n\t\t\t<<elseif $enemyanger gte ($enemyangermax / 5) * 1>>\n\t\t\t\t<mouse class=\"lblue tooltip-centertop\"><<He>>_looks有些躁动。<span>愤怒: <<print $enemyanger.toFixed(2)>> / $enemyangermax</span></mouse>\n\t\t\t<<elseif $enemyanger gt 0>>\n\t\t\t\t<mouse class=\"teal tooltip-centertop\"><<He>>_looks有些失望。<span>愤怒: <<print $enemyanger.toFixed(2)>> / $enemyangermax</span></mouse>\n\t\t\t<<elseif $enemyanger lte 0>>\n\t\t\t\t<mouse class=\"green tooltip-centertop\"><<He>>_looks很平静。<span>愤怒: <<print $enemyanger.toFixed(2)>> / $enemyangermax</span></mouse>\n\t\t\t<</if>>"
+          },
+          {
+            "passageName": "Widgets State Man",
+            "from": "<<if $enemytrust lte -100>>\n\t\t\t\t<span class=\"red\"><<He>>_looks充满猜疑。</span>\n\t\t\t<<elseif $enemytrust lte -60>>\n\t\t\t\t<span class=\"pink\"><<He>>_looks很警惕。</span>\n\t\t\t<<elseif $enemytrust lte -20>>\n\t\t\t\t<span class=\"purple\"><<He>>_looks很谨慎。</span>\n\t\t\t<<elseif $enemytrust lte 20>>\n\t\t\t\t<span class=\"blue\"><<He>>_looks有些谨慎。</span>\n\t\t\t<<elseif $enemytrust lte 60>>\n\t\t\t\t<span class=\"lblue\"><<He>>_looks尚有疑虑。</span>\n\t\t\t<<elseif $enemytrust lte 100>>\n\t\t\t\t<span class=\"teal\"><<He>>_looks很放松。</span>\n\t\t\t<<elseif $enemytrust gt 100>>\n\t\t\t\t<span class=\"green\"><<He>>_looks对你很信任。</span>\n\t\t\t<</if>>",
+            "to": "<<if $enemytrust lte -100>>\n\t\t\t\t<mouse class=\"red tooltip-centertop\"><<He>>_looks充满猜疑。<span>信任: <<print $enemytrust.toFixed(2)>></span></mouse>\n\t\t\t<<elseif $enemytrust lte -60>>\n\t\t\t\t<mouse class=\"pink tooltip-centertop\"><<He>>_looks很警惕。<span>信任: <<print $enemytrust.toFixed(2)>></span></mouse>\n\t\t\t<<elseif $enemytrust lte -20>>\n\t\t\t\t<mouse class=\"purple tooltip-centertop\"><<He>>_looks很谨慎。<span>信任: <<print $enemytrust.toFixed(2)>></span></mouse>\n\t\t\t<<elseif $enemytrust lte 20>>\n\t\t\t\t<mouse class=\"blue tooltip-centertop\"><<He>>_looks有些谨慎。<span>信任: <<print $enemytrust.toFixed(2)>></span></mouse>\n\t\t\t<<elseif $enemytrust lte 60>>\n\t\t\t\t<mouse class=\"lblue tooltip-centertop\"><<He>>_looks尚有疑虑。<span>信任: <<print $enemytrust.toFixed(2)>></span></mouse>\n\t\t\t<<elseif $enemytrust lte 100>>\n\t\t\t\t<mouse class=\"teal tooltip-centertop\"><<He>>_looks很放松。<span>信任: <<print $enemytrust.toFixed(2)>></span></mouse>\n\t\t\t<<elseif $enemytrust gt 100>>\n\t\t\t\t<mouse class=\"green tooltip-centertop\"><<He>>_looks对你很信任。<span>信任: <<print $enemytrust.toFixed(2)>></span></mouse>\n\t\t\t<</if>>"
+          }
+        ]
+      }
+    }
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "ReplacePatcher",
+      "version": "^1.0.0"
+    }
+  ]
+}
